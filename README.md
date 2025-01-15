@@ -27,6 +27,12 @@ Zxared Jay Mallillin, Nicky Chua Lacsina
 
 ## Setup
 1.) Install IIS Manager in your device.
+(HOW? 
+	1.) Go to Control Panel
+	2.) Go to Programs
+	3.) Turn Windows Features
+	4.) Marked "Internet Information Service"
+	5.) Check all 
 
 2.) Browse into "wwwroot" then create these directories: (IF YOU WANT FRESH DATA)
 
