@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react'
 import {
   Delete as DeleteIcon,
-  PhotoCamera as ImageIcon
+  PhotoCamera as ImageIcon,
+  Add as AddIcon,
+  PermMedia as PermMediaIcon,
 } from '@mui/icons-material'
 import * as movininHelper from ':movinin-helper'
 import { strings as commonStrings } from '@/lang/common'
@@ -161,7 +163,7 @@ const ImageEditor = ({
           }}
           className="action"
         >
-          <ImageIcon className="icon" />
+          <PermMediaIcon className="icon" />
           <span>{strings.ADD_IMAGES}</span>
         </button>
         <input ref={uploadImagesRef} type="file" accept="image/*" hidden multiple onChange={handleImagesChange} />
