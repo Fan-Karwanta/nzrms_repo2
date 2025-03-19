@@ -184,3 +184,21 @@ export const getPropertyStats = async (): Promise<{ total: number, change: numbe
     }
   }
 }
+
+/**
+ * Get all properties
+ * 
+ * @returns {Promise<movininTypes.Property[]>}
+ */
+export const getAllProperties = async (): Promise<movininTypes.Property[]> => {
+  try {
+    const res = await axiosInstance.get(
+      '/api/properties',
+      { withCredentials: true }
+    )
+    return res.data
+  } catch (err) {
+    console.error('Error fetching all properties:', err)
+    return []
+  }
+}

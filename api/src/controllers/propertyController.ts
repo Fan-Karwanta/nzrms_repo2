@@ -493,20 +493,27 @@ export const getProperties = async (req: Request, res: Response) => {
     const { body }: { body: movininTypes.GetPropertiesPayload } = req
     const page = Number.parseInt(req.params.page, 10)
     const size = Number.parseInt(req.params.size, 10)
-    const agencies = body.agencies.map((id) => new mongoose.Types.ObjectId(id))
+    const agencies = body.agencies?.map((id) => new mongoose.Types.ObjectId(id)) || []
     const keyword = escapeStringRegexp(String(req.query.s || ''))
     const types = body.types || []
     const rentalTerms = body.rentalTerms || []
-    const { availability } = body
+    const { availability } = body || { availability: [] }
     const options = 'i'
-    // const language = body.language || env.DEFAULT_LANGUAGE
-
+    
     const $match: mongoose.FilterQuery<movininTypes.Property> = {
-      $and: [
-        { agency: { $in: agencies } },
-        { type: { $in: types } },
-        { rentalTerm: { $in: rentalTerms } },
-      ],
+      $and: [],
+    }
+    
+    if (agencies.length > 0) {
+      $match.$and!.push({ agency: { $in: agencies } })
+    }
+    
+    if (types.length > 0) {
+      $match.$and!.push({ type: { $in: types } })
+    }
+    
+    if (rentalTerms.length > 0) {
+      $match.$and!.push({ rentalTerm: { $in: rentalTerms } })
     }
 
     if (availability) {
@@ -517,6 +524,11 @@ export const getProperties = async (req: Request, res: Response) => {
       } else if (availability.length === 0) {
         return res.json([{ resultData: [], pageInfo: [] }])
       }
+    }
+
+    // If no filters are applied, remove the empty $and array
+    if ($match.$and!.length === 0) {
+      delete $match.$and
     }
 
     const data = await Property.aggregate(
@@ -540,45 +552,15 @@ export const getProperties = async (req: Request, res: Response) => {
         // {
         //   $lookup: {
         //     from: 'Location',
-        //     let: { locationId: '$location' },
+        //     let: { location: '$location' },
         //     pipeline: [
         //       {
         //         $match: {
-        //           $expr: { $eq: ['$_id', '$$locationId'] },
+        //           $expr: { $eq: ['$_id', '$$location'] },
         //         },
-        //       },
-        //       {
-        //         $lookup: {
-        //           from: 'LocationValue',
-        //           let: { values: '$values' },
-        //           pipeline: [
-        //             {
-        //               $match: {
-        //                 $and: [
-        //                   { $expr: { $in: ['$_id', '$$values'] } },
-        //                   { $expr: { $eq: ['$language', language] } },
-        //                 ],
-        //               },
-        //             },
-        //           ],
-        //           as: 'value',
-        //         },
-        //       },
-        //       { $unwind: { path: '$value', preserveNullAndEmptyArrays: false } },
-        //       {
-        //         $addFields: { name: '$value.value' },
         //       },
         //     ],
         //     as: 'location',
-        //   },
-        // },
-        // { $unwind: { path: '$location', preserveNullAndEmptyArrays: false } },
-        // {
-        //   $match: {
-        //     $or: [
-        //       { name: { $regex: keyword, $options: options } },
-        //       { 'location.name': { $regex: keyword, $options: options } },
-        //     ],
         //   },
         // },
         {
