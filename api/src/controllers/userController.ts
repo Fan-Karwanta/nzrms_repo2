@@ -202,8 +202,8 @@ export const create = async (req: Request, res: Response) => {
         `<p>${i18n.t('HELLO')}${user.fullName},<br><br>
         ${i18n.t('ACCOUNT_ACTIVATION_LINK')}<br><br>
         ${helper.joinURL(
-          user.type === movininTypes.UserType.User ? env.FRONTEND_HOST : env.BACKEND_HOST,
-          'activate',
+        user.type === movininTypes.UserType.User ? env.FRONTEND_HOST : env.BACKEND_HOST,
+        'activate',
         )}/?u=${encodeURIComponent(user.id)}&e=${encodeURIComponent(user.email)}&t=${encodeURIComponent(token.token)}<br><br>
         ${i18n.t('REGARDS')}<br></p>`,
     }
@@ -1539,3 +1539,53 @@ export const hasPassword = async (req: Request, res: Response) => {
     return res.status(400).send(i18n.t('DB_ERROR') + err)
   }
 }
+
+/**
+ * Get user statistics.
+ *
+ * @export
+ * @async
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {unknown}
+ */
+export const getUserStats = async (req: Request, res: Response) => {
+  try {
+    // Get total users (excluding agencies)
+    const totalUsers = await User.countDocuments({ type: movininTypes.UserType.User })
+
+    // Get users from last month
+    const lastMonth = new Date()
+    lastMonth.setMonth(lastMonth.getMonth() - 1)
+    const lastMonthUsers = await User.countDocuments({
+      type: movininTypes.UserType.User,
+      createdAt: { $gte: lastMonth }
+    })
+
+    // Get users from two months ago
+    const twoMonthsAgo = new Date()
+    twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2)
+    const twoMonthsAgoUsers = await User.countDocuments({
+      type: movininTypes.UserType.User,
+      createdAt: { $gte: twoMonthsAgo, $lt: lastMonth }
+    })
+
+    // Calculate percentage change
+    let change = 0
+    if (twoMonthsAgoUsers > 0) {
+      change = Math.round(((lastMonthUsers - twoMonthsAgoUsers) / twoMonthsAgoUsers) * 100)
+    } else if (lastMonthUsers > 0) {
+      change = 100 // If there were no users two months ago but there are now, that's a 100% increase
+    }
+
+    return res.json({
+      total: totalUsers,
+      change
+    })
+  } catch (err) {
+    logger.error(`[user.getUserStats] ${i18n.t('DB_ERROR')}`, err)
+    return res.status(400).send(i18n.t('DB_ERROR') + err)
+  }
+}
+
+export default {}

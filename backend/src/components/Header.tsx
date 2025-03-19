@@ -298,23 +298,10 @@ const Header = ({
               className="menu"
             >
               {/* Add the image at the top */}
-              <div
-                style={{
-                  textAlign: 'center',
-                  padding: '16px 0',
-                  borderBottom: '1px solid #ddd',
-                  backgroundColor: 'white',
-                }}
-              >
+              <div className="drawer-header">
                 <img
                   src="/white_icon.png"
                   alt="Drawer Header Logo"
-                  style={{
-                    maxWidth: '60px', // Keep image small
-                    height: 'auto', // Maintain aspect ratio
-                    display: 'block',
-                    margin: '0 auto',
-                  }}
                 />
               </div>
 

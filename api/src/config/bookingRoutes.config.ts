@@ -9,6 +9,8 @@ const routes = {
   getBookings: '/api/bookings/:page/:size/:language',
   hasBookings: '/api/has-bookings/:renter',
   cancelBooking: '/api/cancel-booking/:id',
+  getBookingStats: '/api/booking-stats',
+  getRecentBookings: '/api/recent-bookings/:limit/:language',
 }
 
 export default routes

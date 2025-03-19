@@ -86,5 +86,28 @@ export const getAllAgencies = (): Promise<movininTypes.User[]> =>
     .get(
       '/api/all-agencies',
       { withCredentials: true }
-)
+    )
     .then((res) => res.data)
+
+/**
+ * Get agency statistics
+ * 
+ * @returns {Promise<{ total: number, change: number }>}
+ */
+export const getAgencyStats = async (): Promise<{ total: number, change: number }> => {
+  try {
+    // Make a real API call to get agency stats
+    const res = await axiosInstance.get(
+      '/api/agency-stats',
+      { withCredentials: true }
+    )
+    return res.data
+  } catch (err) {
+    console.error('Error fetching agency stats:', err)
+    // Fallback to mock data if API call fails
+    return {
+      total: 0,
+      change: 0
+    }
+  }
+}

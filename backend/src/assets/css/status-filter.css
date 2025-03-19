@@ -1,45 +1,68 @@
 div.status-filter {
-  background: #fafafa;
-  margin: 10px 10px 0 0;
-  border: 1px solid #dadada;
-  font-size: 13px;
+  background: var(--white);
+  margin: 0;
+  border-radius: 8px;
+  font-size: 14px;
   text-align: center;
+  box-shadow: var(--card-shadow);
 }
 
 div.status-filter ul.status-list {
   list-style-type: none;
-  font-size: 13px;
+  font-size: 14px;
   margin: 15px 0 0;
   padding: 0;
   display: inline-block;
-  width: 250px;
+  width: 100%;
 }
 
 div.status-filter ul.status-list li {
   width: 42%;
   float: left;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   margin-left: 4%;
   margin-right: 4%;
   clear: none;
+  display: flex;
+  align-items: center;
 }
 
 div.status-filter ul.status-list li input[type='checkbox'].status-checkbox {
   cursor: pointer;
+  accent-color: var(--jade-green);
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+div.status-filter ul.status-list li span.bs {
+  color: var(--body-text-color);
+  transition: color 0.2s ease;
+  font-size: 14px;
 }
 
 div.status-filter ul.status-list li span.bs:hover {
-  opacity: 0.9;
+  color: var(--jade-green);
   cursor: pointer;
 }
 
 div.status-filter div.filter-actions {
   text-align: center;
-  padding-bottom: 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--light-gray);
+  margin-top: 5px;
 }
 
 div.status-filter div.filter-actions span.uncheckall {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
-  color: #0064c8;
+  color: var(--jade-green);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+div.status-filter div.filter-actions span.uncheckall:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
 }

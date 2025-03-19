@@ -6,10 +6,11 @@ const routes = {
   deleteTempImage: '/api/delete-temp-property-image/:fileName',
   deleteImage: '/api/delete-property-image/:property/:image',
   getProperty: '/api/property/:id/:language',
-  getProperties: '/api/properties/:page/:size',
+  getProperties: '/api/properties/:page/:size/:language',
   getBookingProperties: '/api/booking-properties/:page/:size',
   getFrontendProperties: '/api/frontend-properties/:page/:size',
   checkProperty: '/api/check-property/:id',
+  getPropertyStats: '/api/property-stats',
 }
 
 export default routes

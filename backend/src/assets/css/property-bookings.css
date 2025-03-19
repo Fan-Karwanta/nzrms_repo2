@@ -10,107 +10,168 @@ div.property section.property-sec div.property-info ul.locations-list {
   position: relative;
   list-style: none;
   padding: 0;
+  margin: 15px 0;
 }
 
 div.property section.property-sec div.property-info ul.locations-list li {
-  margin: 5px;
+  margin: 0 0 10px 0;
   width: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 div.property section.property-sec div.property-info ul.locations-list span.property-info-list-text {
-  vertical-align: super;
-  margin-left: 3px;
+  vertical-align: middle;
+  margin-left: 8px;
+  color: var(--body-text-color);
 }
 
 div.property section.property-sec div.property-img {
-  height: 120px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 div.property section.property-sec div.property-img img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
 }
 
 div.property section.property-sec div.agency span.agency-logo {
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 32px;
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+div.property section.property-sec div.agency span.agency-logo:hover {
+  border-color: var(--jade-green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 div.property section.property-sec div.agency span.agency-logo img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 div.property section.property-sec div.property-img div.property-agency span.property-agency-logo {
-  width: 60px;
-  height: 30px;
+  width: 70px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+  border-radius: 6px;
+  padding: 5px;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+div.property section.property-sec div.property-img div.property-agency span.property-agency-logo:hover {
+  border-color: var(--jade-green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 div.property section.property-sec div.property-img div.property-agency span.property-agency-logo img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 /* Device width is less than or equal to 960px */
 div.property section.property-sec {
-  color: #333;
-  font-size: 12px;
-  padding: 5px;
+  color: var(--body-text-color);
+  font-size: 14px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 15px;
 }
 
 div.property section.property-sec div.name h2 {
-  font-size: 1.8em;
-  font-weight: 700;
+  font-size: 1.6em;
+  font-weight: 600;
   text-size-adjust: none;
   line-height: 1.3em;
-  margin: 10px 0;
+  margin: 10px 0 15px 0;
+  color: var(--heading-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 div.property section.property-sec div.property-img div.property-agency {
   display: flex;
   align-items: center;
-  margin-left: 5px;
+  margin: 10px 0;
 }
 
 div.property section.property-sec div.property-img div.property-agency span.property-agency-info {
-  color: #a8a8a8;
+  color: var(--dark-gray);
   display: inline-block;
-  font-size: 0.9em;
-  line-height: 1em;
+  font-size: 0.95em;
+  line-height: 1.2em;
   white-space: nowrap;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 div.property section.property-sec div.price {
   text-align: right;
-  color: #383838;
+  color: var(--jade-green);
   font-size: 1.4em;
   font-weight: 700;
   white-space: nowrap;
-  margin-right: 10px;
+  margin: 10px 0;
+  background-color: rgba(0, 168, 107, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 div.property div.action {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 15px;
+}
+
+div.property div.action .MuiButton-root {
+  background-color: var(--jade-green) !important;
+  color: var(--white) !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+}
+
+div.property div.action .MuiButton-root:hover {
+  background-color: var(--dark-green) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px) !important;
 }
 
 @media only screen and (width <= 960px) {
@@ -120,15 +181,17 @@ div.property div.action {
 
   div.property div.col-1 {
     width: 100%;
-    padding-top: 5px;
-    background: #fefefe;
-    border-bottom: #eee solid 1px;
+    padding: 15px;
+    background: var(--white);
+    border-bottom: var(--light-gray) solid 1px;
   }
 
   div.property div.col-2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 15px;
+    background-color: var(--light-gray);
   }
 }
 
@@ -145,9 +208,9 @@ div.property div.action {
     bottom: 0;
     left: 0;
     width: 400px;
-    padding-top: 20px;
-    background: #fefefe;
-    border-right: #eee solid 1px;
+    padding: 20px;
+    background: var(--white);
+    border-right: var(--light-gray) solid 1px;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -156,5 +219,7 @@ div.property div.action {
   div.property div.col-2 {
     position: absolute;
     inset: 0 0 0 400px;
+    background-color: var(--light-gray);
+    padding: 20px;
   }
 }

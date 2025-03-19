@@ -39,6 +39,7 @@ const Countries = lazy(() => import('@/pages/Countries'))
 const CreateCountry = lazy(() => import('@/pages/CreateCountry'))
 const UpdateCountry = lazy(() => import('@/pages/UpdateCountry'))
 const ReportsAnalytics = lazy(() => import('@/pages/ReportsAnalytics'))
+const Dashboard = lazy(() => import('@/pages/Dashboard'))
 
 const App = () => (
   <GlobalProvider>
@@ -53,7 +54,8 @@ const App = () => (
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/" element={<Bookings />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/bookings" element={<Bookings />} />
             <Route path="/agencies" element={<Agencies />} />
             <Route path="/agency" element={<Agency />} />
             <Route path="/create-agency" element={<CreateAgency />} />

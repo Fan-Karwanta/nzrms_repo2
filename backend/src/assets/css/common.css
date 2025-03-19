@@ -1,7 +1,7 @@
 :root {
-  --toastify-color-progress-info: #fff !important;
+  --toastify-color-progress-info: var(--jade-green) !important;
   --toastify-color-progress-bgo: .6 !important;
-  --toastify-icon-color-info: #fff !important;
+  --toastify-icon-color-info: var(--white) !important;
 }
 
 .buttons button {
@@ -10,14 +10,14 @@
 }
 
 .btn-primary {
-  background-color: #121212 !important;
-  color: #fff !important;
+  background-color: var(--primary-button-bg) !important;
+  color: var(--primary-button-text) !important;
   opacity: 0.9;
 }
 
 .btn-secondary {
-  background-color: #999 !important;
-  color: #fff !important;
+  background-color: var(--secondary-button-bg) !important;
+  color: var(--secondary-button-text) !important;
 }
 
 .btn-primary:hover,

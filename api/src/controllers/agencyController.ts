@@ -277,3 +277,51 @@ export const getAllAgencies = async (req: Request, res: Response) => {
     return res.status(400).send(i18n.t('DB_ERROR') + err)
   }
 }
+
+/**
+ * Get agency statistics.
+ *
+ * @export
+ * @async
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {unknown}
+ */
+export const getAgencyStats = async (req: Request, res: Response) => {
+  try {
+    // Get total agencies
+    const totalAgencies = await User.countDocuments({ type: movininTypes.UserType.Agency })
+
+    // Get agencies from last month
+    const lastMonth = new Date()
+    lastMonth.setMonth(lastMonth.getMonth() - 1)
+    const lastMonthAgencies = await User.countDocuments({
+      type: movininTypes.UserType.Agency,
+      createdAt: { $gte: lastMonth }
+    })
+
+    // Get agencies from two months ago
+    const twoMonthsAgo = new Date()
+    twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2)
+    const twoMonthsAgoAgencies = await User.countDocuments({
+      type: movininTypes.UserType.Agency,
+      createdAt: { $gte: twoMonthsAgo, $lt: lastMonth }
+    })
+
+    // Calculate percentage change
+    let change = 0
+    if (twoMonthsAgoAgencies > 0) {
+      change = Math.round(((lastMonthAgencies - twoMonthsAgoAgencies) / twoMonthsAgoAgencies) * 100)
+    } else if (lastMonthAgencies > 0) {
+      change = 100 // If there were no agencies two months ago but there are now, that's a 100% increase
+    }
+
+    return res.json({
+      total: totalAgencies,
+      change
+    })
+  } catch (err) {
+    logger.error(`[agency.getAgencyStats] ${i18n.t('DB_ERROR')}`, err)
+    return res.status(400).send(i18n.t('DB_ERROR') + err)
+  }
+}

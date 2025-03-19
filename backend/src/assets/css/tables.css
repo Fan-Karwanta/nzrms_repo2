@@ -1,0 +1,445 @@
+/* Modern Table Styling */
+
+/* Base Table */
+.table-container {
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.table-container.bordered {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.table-container.striped .MuiTableBody-root .MuiTableRow-root:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.MuiTable-root {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* Table Header */
+.MuiTableHead-root {
+  background-color: rgba(0, 168, 107, 0.05) !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head {
+  font-weight: var(--font-weight-semibold) !important;
+  color: var(--heading-color) !important;
+  padding: var(--spacing-md) var(--spacing-lg) !important;
+  border-bottom: 2px solid var(--jade-green) !important;
+  text-transform: none !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.3px !important;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head.sortable {
+  cursor: pointer !important;
+  transition: background-color var(--transition-fast) !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head.sortable:hover {
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head .sort-icon {
+  font-size: 1rem !important;
+  vertical-align: middle !important;
+  margin-left: var(--spacing-xs) !important;
+  opacity: 0.6 !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head.sorted {
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.MuiTableHead-root .MuiTableCell-head.sorted .sort-icon {
+  opacity: 1 !important;
+  color: var(--jade-green) !important;
+}
+
+/* Table Body */
+.MuiTableBody-root .MuiTableRow-root {
+  transition: background-color var(--transition-fast) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+.MuiTableBody-root .MuiTableRow-root:last-child {
+  border-bottom: none !important;
+}
+
+.MuiTableBody-root .MuiTableRow-root:nth-of-type(odd) {
+  background-color: var(--white);
+}
+
+.MuiTableBody-root .MuiTableRow-root:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.MuiTableBody-root .MuiTableRow-root:hover {
+  background-color: rgba(0, 168, 107, 0.04) !important;
+}
+
+.MuiTableBody-root .MuiTableRow-root.selected {
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.MuiTableBody-root .MuiTableCell-body {
+  padding: var(--spacing-md) var(--spacing-lg) !important;
+  color: var(--body-text-color) !important;
+  font-size: 0.95rem !important;
+  border-bottom: none !important;
+  vertical-align: middle !important;
+}
+
+/* Table Cell Variants */
+.table-cell-primary {
+  color: var(--jade-green) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.table-cell-secondary {
+  color: var(--dark-gray) !important;
+  font-size: 0.9rem !important;
+}
+
+.table-cell-monospace {
+  font-family: var(--font-family-mono) !important;
+  letter-spacing: -0.5px !important;
+}
+
+.table-cell-truncate {
+  max-width: 200px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Table Footer */
+.MuiTableFooter-root {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Table Pagination */
+.MuiTablePagination-root {
+  color: var(--body-text-color) !important;
+  font-size: 0.9rem !important;
+}
+
+.MuiTablePagination-selectIcon {
+  color: var(--jade-green) !important;
+}
+
+.MuiTablePagination-actions button {
+  color: var(--jade-green) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.MuiTablePagination-actions button:hover {
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.MuiTablePagination-actions button:disabled {
+  color: var(--medium-gray) !important;
+}
+
+.MuiTablePagination-select {
+  padding: var(--spacing-xs) var(--spacing-sm) !important;
+  border-radius: var(--border-radius-sm) !important;
+  margin: 0 var(--spacing-xs) !important;
+}
+
+/* Table Actions */
+.table-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.table-action-button {
+  min-width: 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  border-radius: var(--border-radius-sm) !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.table-action-button:hover {
+  transform: translateY(-2px) !important;
+}
+
+.table-action-button.edit {
+  color: var(--jade-green) !important;
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.table-action-button.edit:hover {
+  background-color: rgba(0, 168, 107, 0.15) !important;
+}
+
+.table-action-button.delete {
+  color: var(--error) !important;
+  background-color: rgba(255, 107, 107, 0.08) !important;
+}
+
+.table-action-button.delete:hover {
+  background-color: rgba(255, 107, 107, 0.15) !important;
+}
+
+.table-action-button.view {
+  color: var(--info) !important;
+  background-color: rgba(78, 205, 196, 0.08) !important;
+}
+
+.table-action-button.view:hover {
+  background-color: rgba(78, 205, 196, 0.15) !important;
+}
+
+/* Table Status Indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.status-indicator::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-active {
+  background-color: rgba(40, 199, 111, 0.1);
+  color: var(--success);
+}
+
+.status-active::before {
+  background-color: var(--success);
+}
+
+.status-inactive {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: var(--error);
+}
+
+.status-inactive::before {
+  background-color: var(--error);
+}
+
+.status-pending {
+  background-color: rgba(255, 170, 0, 0.1);
+  color: var(--warning);
+}
+
+.status-pending::before {
+  background-color: var(--warning);
+}
+
+/* Table Empty State */
+.table-empty-state {
+  padding: var(--spacing-xxl);
+  text-align: center;
+  color: var(--dark-gray);
+}
+
+.table-empty-state-icon {
+  font-size: 3.5rem !important;
+  color: rgba(0, 0, 0, 0.15);
+  margin-bottom: var(--spacing-md);
+}
+
+.table-empty-state-text {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--dark-gray);
+}
+
+.table-empty-state-subtext {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  max-width: 400px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+/* Table Toolbar */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.table-toolbar-title {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.table-toolbar-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* Table Search */
+.table-search {
+  position: relative;
+  min-width: 250px;
+}
+
+.table-search input {
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 36px !important;
+  border-radius: var(--border-radius-md) !important;
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.table-search input:focus {
+  background-color: var(--white) !important;
+  border-color: var(--jade-green) !important;
+  box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.1) !important;
+}
+
+.table-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--medium-gray);
+  font-size: 1.1rem !important;
+}
+
+/* Table Filters */
+.table-filters {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: rgba(0, 0, 0, 0.01);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  flex-wrap: wrap;
+}
+
+.table-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.table-filter-label {
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+  font-weight: var(--font-weight-medium);
+}
+
+.table-filter-clear {
+  color: var(--jade-green);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+/* Table Row Expandable */
+.table-row-expandable {
+  cursor: pointer;
+}
+
+.table-row-expandable .expand-icon {
+  transition: transform var(--transition-normal);
+}
+
+.table-row-expandable.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.table-row-detail {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+}
+
+.table-row-detail-content {
+  padding: var(--spacing-md) var(--spacing-xl) !important;
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* Table Selection */
+.table-checkbox-cell {
+  width: 48px !important;
+  padding-right: 0 !important;
+}
+
+.table-selection-toolbar {
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.table-selection-count {
+  font-weight: var(--font-weight-medium) !important;
+  color: var(--jade-green) !important;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+    border-radius: var(--border-radius-md);
+  }
+  
+  .MuiTable-root {
+    min-width: 650px;
+  }
+  
+  .table-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .table-toolbar-actions {
+    margin-top: var(--spacing-sm);
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .table-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-toolbar-title {
+    font-size: 1rem;
+  }
+  
+  .table-empty-state {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .table-empty-state-icon {
+    font-size: 3rem !important;
+  }
+  
+  .table-empty-state-text {
+    font-size: 1rem;
+  }
+}

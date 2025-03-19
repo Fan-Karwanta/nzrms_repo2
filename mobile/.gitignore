@@ -1,92 +1,35 @@
-# OSX
-#
-.DS_Store
-.DS_Store?
-/**/.DS_Store
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-project.xcworkspace
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
-*.iml
-*.hprof
+# Next.js
+/.next
 
-# node.js
-#
-node_modules/
-npm-debug.log
+# testing
+/coverage
 
-# BUCK
-buck-out/
-\.buckd/
-*.keystore
-!debug.keystore
-
-# Bundle artifacts
-*.jsbundle
-
-# CocoaPods
-/ios/Pods/
-
-# Expo
-.expo/
-web-build/
-dist/
+# production
+/build
 
 # misc
-
+.DS_Store
+.DS_Store?
 .env.local
 .env.dev
 .env.development
 .env.development.local
 .env.test.local
+.env.production
 .env.production.local
-.env.oraclecloud
+.env.docker
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Expo
-.expo/
-web-build/
-dist/
-
-google-services.json
-/**/google-services.json
-
-# @end expo-cli
-
-# yarn
-.yarn/
-
-# build
-*.apk
-/**/*.apk
-
-android/
-ios/
-
-%ProgramData%/
+*.tsbuildinfo
+vite.config.d.ts
+vite.config.js

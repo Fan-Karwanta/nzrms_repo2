@@ -489,3 +489,24 @@ export const deleteUsers = (ids: string[]): Promise<number> => (
     )
     .then((res) => res.status)
 )
+
+/**
+ * Get user statistics
+ * 
+ * @returns {Promise<{ total: number, change: number }>}
+ */
+export const getUserStats = async (): Promise<{ total: number, change: number }> => {
+  try {
+    const res = await axiosInstance.get(
+      '/api/user-stats',
+      { withCredentials: true }
+    )
+    return res.data
+  } catch (err) {
+    console.error('Error fetching user stats:', err)
+    return {
+      total: 0,
+      change: 0
+    }
+  }
+}

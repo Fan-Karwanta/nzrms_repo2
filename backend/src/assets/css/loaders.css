@@ -1,0 +1,502 @@
+/* Modern Loading and Progress Indicators */
+
+/* Spinner Loader */
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.spinner-sm {
+  width: 24px;
+  height: 24px;
+}
+
+.spinner-lg {
+  width: 56px;
+  height: 56px;
+}
+
+.spinner-xl {
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-circle {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  animation: spinner-rotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--jade-green) transparent transparent transparent;
+}
+
+.spinner-sm .spinner-circle {
+  border-width: 2px;
+}
+
+.spinner-lg .spinner-circle,
+.spinner-xl .spinner-circle {
+  border-width: 4px;
+}
+
+.spinner-circle:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.spinner-circle:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.spinner-circle:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spinner Colors */
+.spinner-primary .spinner-circle {
+  border-color: var(--jade-green) transparent transparent transparent;
+}
+
+.spinner-secondary .spinner-circle {
+  border-color: var(--emerald-green) transparent transparent transparent;
+}
+
+.spinner-success .spinner-circle {
+  border-color: var(--success) transparent transparent transparent;
+}
+
+.spinner-error .spinner-circle {
+  border-color: var(--error) transparent transparent transparent;
+}
+
+.spinner-warning .spinner-circle {
+  border-color: var(--warning) transparent transparent transparent;
+}
+
+.spinner-info .spinner-circle {
+  border-color: var(--info) transparent transparent transparent;
+}
+
+.spinner-light .spinner-circle {
+  border-color: var(--white) transparent transparent transparent;
+}
+
+.spinner-dark .spinner-circle {
+  border-color: var(--black) transparent transparent transparent;
+}
+
+/* Pulse Loader */
+.pulse-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--jade-green);
+  animation: pulse-animation 1.4s infinite ease-in-out;
+}
+
+.pulse-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.pulse-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse-animation {
+  0%, 100% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pulse Colors */
+.pulse-primary .pulse-dot {
+  background-color: var(--jade-green);
+}
+
+.pulse-secondary .pulse-dot {
+  background-color: var(--emerald-green);
+}
+
+.pulse-success .pulse-dot {
+  background-color: var(--success);
+}
+
+.pulse-error .pulse-dot {
+  background-color: var(--error);
+}
+
+.pulse-warning .pulse-dot {
+  background-color: var(--warning);
+}
+
+.pulse-info .pulse-dot {
+  background-color: var(--info);
+}
+
+.pulse-light .pulse-dot {
+  background-color: var(--white);
+}
+
+.pulse-dark .pulse-dot {
+  background-color: var(--black);
+}
+
+/* Sizes */
+.pulse-sm .pulse-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.pulse-lg .pulse-dot {
+  width: 10px;
+  height: 10px;
+}
+
+.pulse-xl .pulse-dot {
+  width: 12px;
+  height: 12px;
+}
+
+/* Linear Progress */
+.progress {
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-sm {
+  height: 2px;
+}
+
+.progress-lg {
+  height: 8px;
+}
+
+.progress-xl {
+  height: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--jade-green);
+  border-radius: var(--border-radius-pill);
+  transition: width 0.3s ease;
+}
+
+/* Progress Colors */
+.progress-primary .progress-bar {
+  background-color: var(--jade-green);
+}
+
+.progress-secondary .progress-bar {
+  background-color: var(--emerald-green);
+}
+
+.progress-success .progress-bar {
+  background-color: var(--success);
+}
+
+.progress-error .progress-bar {
+  background-color: var(--error);
+}
+
+.progress-warning .progress-bar {
+  background-color: var(--warning);
+}
+
+.progress-info .progress-bar {
+  background-color: var(--info);
+}
+
+/* Indeterminate Progress */
+.progress-indeterminate .progress-bar {
+  width: 100%;
+  animation: indeterminate-animation 1.5s infinite linear;
+  transform-origin: 0% 50%;
+}
+
+@keyframes indeterminate-animation {
+  0% {
+    transform: translateX(-100%) scaleX(0.1);
+  }
+  40% {
+    transform: translateX(0%) scaleX(0.5);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.1);
+  }
+}
+
+/* Striped Progress */
+.progress-striped .progress-bar {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 40px 40px;
+}
+
+.progress-striped.progress-animated .progress-bar {
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+/* Circular Progress */
+.circular-progress {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress svg {
+  transform: rotate(-90deg);
+}
+
+.circular-progress-background {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+.circular-progress-value {
+  fill: none;
+  stroke: var(--jade-green);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.circular-progress-label {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--body-text-color);
+}
+
+/* Circular Progress Colors */
+.circular-progress-primary .circular-progress-value {
+  stroke: var(--jade-green);
+}
+
+.circular-progress-secondary .circular-progress-value {
+  stroke: var(--emerald-green);
+}
+
+.circular-progress-success .circular-progress-value {
+  stroke: var(--success);
+}
+
+.circular-progress-error .circular-progress-value {
+  stroke: var(--error);
+}
+
+.circular-progress-warning .circular-progress-value {
+  stroke: var(--warning);
+}
+
+.circular-progress-info .circular-progress-value {
+  stroke: var(--info);
+}
+
+/* Skeleton Loader */
+.skeleton {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius-sm);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: skeleton-shine 2s infinite;
+}
+
+@keyframes skeleton-shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-text {
+  height: 1em;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.skeleton-avatar-sm {
+  width: 24px;
+  height: 24px;
+}
+
+.skeleton-avatar-lg {
+  width: 56px;
+  height: 56px;
+}
+
+.skeleton-button {
+  height: 36px;
+  width: 120px;
+  border-radius: var(--border-radius-md);
+}
+
+.skeleton-card {
+  height: 200px;
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+}
+
+.skeleton-image {
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  width: 100%;
+  border-radius: var(--border-radius-md);
+}
+
+/* Page Loader */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.page-loader-content {
+  text-align: center;
+}
+
+.page-loader-text {
+  margin-top: var(--spacing-md);
+  color: var(--body-text-color);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Button Loader */
+.button-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-loader-spinner {
+  margin-right: var(--spacing-xs);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.loading-overlay-dark {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Loading Bar (for top of page) */
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  background-color: var(--jade-green);
+  transform-origin: left;
+  animation: loading-bar-animation 2s ease-in-out infinite;
+}
+
+@keyframes loading-bar-animation {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}

@@ -856,3 +856,87 @@ export const cancelBooking = async (req: Request, res: Response) => {
     return res.status(400).send(i18n.t('DB_ERROR') + err)
   }
 }
+
+/**
+ * Get booking statistics.
+ *
+ * @export
+ * @async
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {unknown}
+ */
+export const getBookingStats = async (req: Request, res: Response) => {
+  try {
+    // Get total bookings
+    const totalBookings = await Booking.countDocuments()
+
+    // Get bookings from last month
+    const lastMonth = new Date()
+    lastMonth.setMonth(lastMonth.getMonth() - 1)
+    const lastMonthBookings = await Booking.countDocuments({
+      createdAt: { $gte: lastMonth }
+    })
+
+    // Get bookings from two months ago
+    const twoMonthsAgo = new Date()
+    twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2)
+    const twoMonthsAgoBookings = await Booking.countDocuments({
+      createdAt: { $gte: twoMonthsAgo, $lt: lastMonth }
+    })
+
+    // Calculate percentage change
+    let change = 0
+    if (twoMonthsAgoBookings > 0) {
+      change = Math.round(((lastMonthBookings - twoMonthsAgoBookings) / twoMonthsAgoBookings) * 100)
+    } else if (lastMonthBookings > 0) {
+      change = 100 // If there were no bookings two months ago but there are now, that's a 100% increase
+    }
+
+    return res.json({
+      total: totalBookings,
+      change
+    })
+  } catch (err) {
+    logger.error(`[booking.getBookingStats] ${i18n.t('DB_ERROR')}`, err)
+    return res.status(400).send(i18n.t('DB_ERROR') + err)
+  }
+}
+
+/**
+ * Get recent bookings.
+ *
+ * @export
+ * @async
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {unknown}
+ */
+export const getRecentBookings = async (req: Request, res: Response) => {
+  try {
+    const { limit, language } = req.params
+
+    const bookings = await Booking.find()
+      .populate({
+        path: 'agency',
+        select: '_id fullName avatar'
+      })
+      .populate({
+        path: 'property',
+        select: '_id name image price'
+      })
+      .populate({
+        path: 'renter',
+        select: '_id fullName avatar'
+      })
+      .sort({ createdAt: -1 })
+      .limit(Number(limit))
+
+    return res.json(bookings)
+  } catch (err: any) {
+    logger.error(`[booking.getRecentBookings] ${i18n.t('DB_ERROR')}`, err)
+    return res.status(400).send(i18n.t('DB_ERROR') + err)
+  }
+}
+
+export default {}

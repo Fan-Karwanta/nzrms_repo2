@@ -161,3 +161,26 @@ export const getBookingProperties = (keyword: string, data: movininTypes.GetBook
       { withCredentials: true }
     )
     .then((res) => res.data)
+
+/**
+ * Get property statistics
+ * 
+ * @returns {Promise<{ total: number, change: number }>}
+ */
+export const getPropertyStats = async (): Promise<{ total: number, change: number }> => {
+  try {
+    // Make a real API call to get property stats
+    const res = await axiosInstance.get(
+      '/api/property-stats',
+      { withCredentials: true }
+    )
+    return res.data
+  } catch (err) {
+    console.error('Error fetching property stats:', err)
+    // Fallback to mock data if API call fails
+    return {
+      total: 0,
+      change: 0
+    }
+  }
+}

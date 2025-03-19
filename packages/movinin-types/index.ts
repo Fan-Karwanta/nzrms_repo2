@@ -9,6 +9,11 @@ export enum AppType {
   Frontend = 'FRONTEND',
 }
 
+export enum PaymentGateway {
+  Stripe = 'STRIPE',
+  PayPal = 'PAYPAL',
+}
+
 export enum PropertyType {
   Apartment = 'APARTMENT',
   Commercial = 'COMMERCIAL',

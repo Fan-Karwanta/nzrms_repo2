@@ -4,10 +4,37 @@
   position: sticky !important;
   top: 0;
   z-index: 1400;
+  background: var(--jade-green) !important;
+  background: linear-gradient(90deg, var(--jade-green) 0%, var(--emerald-green) 100%) !important;
+  color: var(--white) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.header .MuiToolbar-root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .MuiIconButton-root {
+  color: var(--white) !important;
 }
 
 .menu {
   z-index: 1401 !important;
+}
+
+.menu .MuiPaper-root {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  overflow: hidden !important;
+}
+
+.menu .MuiMenuItem-root {
+  padding: 10px 20px !important;
+}
+
+.menu .MuiMenuItem-root:hover {
+  background-color: var(--light-green) !important;
 }
 
 .header-action {

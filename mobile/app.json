@@ -19,10 +19,6 @@
         "foregroundImage": "./assets/icon3.png"
       },
       "icon": "./assets/icon3.png",
-      // "splash": {
-      //   "backgroundColor": "#0D63C9",
-      //   "image": "./assets/splash.png"
-      // },
       "googleServicesFile": "./google-services.json",
       "package": "com.movinin"
     },
@@ -30,20 +26,15 @@
       "buildNumber": "3.9.0",
       "supportsTablet": true,
       "icon": "./assets/icon3.png",
-      // "splash": {
-      //   "backgroundColor": "#0D63C9",
-      //   "image": "./assets/splash.png",
-      //   "tabletImage": "./assets/splash-tablet.png"
-      // },
       "bundleIdentifier": "com.movinin"
     },
     "plugins": [
-      ["expo-location",
-      {
-        "locationAlwaysAndWhenInUsePermission": "Allow NZ RMS to use your location."
-      }
-    ],
-
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow NZ RMS to use your location."
+        }
+      ],
       "expo-localization",
       "./plugins/usesCleartextTraffic",
       [
@@ -60,7 +51,8 @@
           "merchantIdentifier": "MERCHANT_IDENTIFIER",
           "enableGooglePay": true
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "owner": "aelassas",
     "extra": {

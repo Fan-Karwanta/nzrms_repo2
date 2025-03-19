@@ -5,35 +5,50 @@ div.create-property {
   flex-direction: column;
   flex: 1 0 auto;
   align-items: center;
-  /*transform: translate3d(0, 0, 0); */
-
-  /* margin: 45px 0; */
+  background-color: var(--light-gray);
+  min-height: calc(100vh - 64px);
 }
 
 .property-form-wrapper {
-  margin: 32px 0;
+  margin: 40px 0;
 }
 
 .property-form-title {
   text-align: center;
-  text-transform: capitalize;
-  color: #121212;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 30px;
+  font-size: 1.8em;
+}
+
+.property-form {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
 }
 
 .checkbox-fc {
-  margin: 13px 0 !important;
+  margin: 16px 0 !important;
 }
 
 .checkbox-fc .checkbox-fcl {
-  color: rgb(0 0 0 / 60%);
-  font-size: 0.9em;
-  line-height: 1em;
+  color: var(--body-text-color);
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.checkbox-fc .MuiCheckbox-root {
+  color: var(--jade-green) !important;
+}
+
+.checkbox-fc .Mui-checked {
+  color: var(--jade-green) !important;
 }
 
 .label {
-  color: rgb(0 0 0 / 60%);
-  font-weight: 400;
-  font-size: 12px;
+  color: var(--dark-gray);
+  font-weight: 500;
+  font-size: 14px;
   display: block;
   width: fit-content;
   margin: 0 0 12px 12px;
@@ -41,20 +56,58 @@ div.create-property {
 
 .editor-field {
   z-index: 0;
+  margin-bottom: 20px;
 }
 
 .editor-field .editor {
-  border: 1px solid #F1F1F1;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
   height: 300px;
   overflow: auto;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset;
+}
+
+.property-form .MuiFormControl-root {
+  margin-bottom: 20px;
+}
+
+.property-form .MuiInputBase-root {
+  border-radius: 8px;
+}
+
+.property-form .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--jade-green);
+}
+
+.property-form .MuiInputLabel-root.Mui-focused {
+  color: var(--jade-green);
+}
+
+.property-form .MuiButton-contained {
+  background-color: var(--jade-green);
+  color: var(--white);
+  text-transform: none;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.property-form .MuiButton-contained:hover {
+  background-color: var(--dark-green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
 }
 
 /* Device width is less than or equal to 960px */
 
 @media only screen and (width <=960px) {
   .property-form {
-    width: 360px;
-    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px 20px;
   }
 }
 
@@ -63,6 +116,6 @@ div.create-property {
 @media only screen and (width >=960px) {
   .property-form {
     width: 600px;
-    padding: 30px;
+    padding: 40px;
   }
 }

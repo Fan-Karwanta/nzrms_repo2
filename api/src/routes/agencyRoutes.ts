@@ -11,5 +11,6 @@ routes.route(routeNames.delete).delete(authJwt.verifyToken, agencyController.del
 routes.route(routeNames.getAgency).get(authJwt.verifyToken, agencyController.getAgency)
 routes.route(routeNames.getAgencies).get(authJwt.verifyToken, agencyController.getAgencies)
 routes.route(routeNames.getAllAgencies).get(agencyController.getAllAgencies)
+routes.route(routeNames.getAgencyStats).get(authJwt.verifyToken, agencyController.getAgencyStats)
 
 export default routes

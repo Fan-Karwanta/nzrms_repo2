@@ -4,30 +4,33 @@ div.signin {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--light-green);
+  background-image: linear-gradient(135deg, var(--light-green) 0%, var(--mint-green) 100%);
 }
 
 .signin-form {
   padding: 2rem;
   max-width: 400px;
   width: 100%;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px !important;
+  background-color: var(--white);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 4px solid var(--jade-green) !important;
 }
 
 /* Logo */
 div.signin .signin-logo {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 div.signin .signin-logo img {
   max-width: 100px;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .signin-form-title {
@@ -36,7 +39,7 @@ div.signin .signin-logo img {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  color: #121212;
+  color: var(--heading-color);
 }
 
 div.signin div.stay-connected {
@@ -48,11 +51,12 @@ div.signin div.stay-connected {
 
 div.signin div.stay-connected input[type="checkbox"] {
   margin-right: 5px;
+  accent-color: var(--jade-green);
 }
 
 div.signin div.stay-connected label {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--body-text-color);
   user-select: none;
 }
 
@@ -72,11 +76,13 @@ div.signin div.forgot-password {
 
 .signin-buttons button {
   width: 100%;
+  padding: 10px 0 !important;
+  font-size: 1rem !important;
 }
 
 .form-error {
   margin-top: 1rem;
-  color: red;
+  color: var(--error);
   font-size: 0.9rem;
   text-align: center;
 }

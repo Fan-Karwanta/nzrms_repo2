@@ -92,3 +92,65 @@ export const getBookings = (payload: movininTypes.GetBookingsPayload, page: numb
       { withCredentials: true }
     )
     .then((res) => res.data)
+
+/**
+ * Get booking statistics
+ * 
+ * @returns {Promise<{ total: number, change: number }>}
+ */
+export const getBookingStats = async (): Promise<{ total: number, change: number }> => {
+  try {
+    // Make a real API call to get booking stats
+    const res = await axiosInstance.get(
+      '/api/booking-stats',
+      { withCredentials: true }
+    )
+    return res.data
+  } catch (err) {
+    console.error('Error fetching booking stats:', err)
+    // Fallback to mock data if API call fails
+    return {
+      total: 0,
+      change: 0
+    }
+  }
+}
+
+/**
+ * Get recent bookings
+ * 
+ * @param {number} limit
+ * @returns {Promise<movininTypes.Booking[]>}
+ */
+export const getRecentBookings = async (limit: number): Promise<movininTypes.Booking[]> => {
+  try {
+    // Make a real API call to get recent bookings
+    const res = await axiosInstance.get(
+      `/api/recent-bookings/${limit}/${UserService.getLanguage()}`,
+      { withCredentials: true }
+    )
+    return res.data
+  } catch (err) {
+    console.error('Error fetching recent bookings:', err)
+    
+    // Fallback to using the regular getBookings method if API call fails
+    try {
+      const payload: movininTypes.GetBookingsPayload = {
+        agencies: [],
+        statuses: ['pending', 'deposit', 'paid', 'reserved', 'cancelled'],
+      }
+      
+      const data = await getBookings(payload, 1, limit)
+      if (data && data.length > 0) {
+        const firstResult = data[0]
+        if (firstResult && firstResult.resultData) {
+          return firstResult.resultData
+        }
+      }
+    } catch (innerErr) {
+      console.error('Error with fallback booking fetch:', innerErr)
+    }
+    
+    return []
+  }
+}

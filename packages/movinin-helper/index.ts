@@ -326,3 +326,81 @@ export const formatPrice = (price: number, currency: string, language: string) =
  * @returns {boolean}
  */
 export const isFrench = (language?: string) => language === 'fr'
+
+/**
+ * Check if a currency is valid.
+ *
+ * @export
+ * @param {string} currency
+ * @returns {boolean}
+ */
+export const checkCurrency = (currency: string): boolean => {
+  return ['USD', 'EUR', 'GBP', 'AUD', 'CAD'].includes(currency)
+}
+
+/**
+ * Convert price from one currency to another.
+ *
+ * @export
+ * @param {number} amount
+ * @param {string} from
+ * @param {string} to
+ * @returns {Promise<number>}
+ */
+export const convertPrice = async (amount: number, from: string, to: string): Promise<number> => {
+  // This is a placeholder implementation
+  // In a real app, this would call a currency conversion API
+  return amount
+}
+
+/**
+ * Check if currency is RTL.
+ *
+ * @export
+ * @param {string} currency
+ * @returns {boolean}
+ */
+export const currencyRTL = (currency: string): boolean => {
+  return ['ILS', 'SAR', 'AED'].includes(currency)
+}
+
+/**
+ * Calculate total price.
+ *
+ * @export
+ * @param {movininTypes.Property} property
+ * @param {Date} from
+ * @param {Date} to
+ * @param {movininTypes.PropertyOptions} [options]
+ * @returns {number}
+ */
+export const calculateTotalPrice = (
+  property: movininTypes.Property,
+  from: Date,
+  to: Date,
+  options?: movininTypes.PropertyOptions
+): number => {
+  const days = totalDays(from, to)
+  let price = property.price * days
+  
+  if (options?.cancellation) {
+    price += property.cancellation
+  }
+  
+  return price
+}
+
+/**
+ * Truncate a string to a specified length.
+ *
+ * @export
+ * @param {string} str
+ * @param {number} length
+ * @returns {string}
+ */
+export const truncateString = (str: string, length: number): string => {
+  if (str.length <= length) {
+    return str
+  }
+  return str.substring(0, length) + '...'
+}

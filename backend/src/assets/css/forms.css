@@ -1,0 +1,449 @@
+/* Modern Form Styling */
+
+/* Form Container */
+.form-container {
+  padding: var(--spacing-xl);
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--spacing-xl);
+  border-top: 4px solid var(--jade-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at top right, rgba(0, 168, 107, 0.05), transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--heading-color);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--jade-green);
+  border-radius: var(--border-radius-pill);
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  margin-top: calc(-1 * var(--spacing-md));
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.form-section-title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--heading-color);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+/* Form Labels */
+.form-label {
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-xs);
+  color: var(--body-text-color);
+  display: block;
+  font-size: 0.9rem;
+  transition: all var(--transition-normal);
+}
+
+/* Form Inputs */
+.MuiFormControl-root {
+  margin-bottom: var(--spacing-md) !important;
+  width: 100% !important;
+}
+
+.MuiInputBase-root {
+  border-radius: var(--border-radius-md) !important;
+  transition: all var(--transition-normal) !important;
+  font-size: 1rem !important;
+  background-color: var(--white) !important;
+}
+
+.MuiOutlinedInput-root {
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.MuiOutlinedInput-root:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.15) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--jade-green) !important;
+  border-width: 2px !important;
+}
+
+.MuiInputLabel-root {
+  font-size: 0.95rem !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: var(--jade-green) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.MuiInputBase-input {
+  padding: 14px 16px !important;
+  height: auto !important;
+}
+
+.MuiInputBase-input::placeholder {
+  color: var(--medium-gray) !important;
+  opacity: 0.7 !important;
+}
+
+/* Select Dropdowns */
+.MuiSelect-select {
+  padding: 14px 16px !important;
+}
+
+.MuiMenuItem-root {
+  padding: 10px 16px !important;
+  transition: background-color var(--transition-fast) !important;
+}
+
+.MuiMenuItem-root.Mui-selected {
+  background-color: rgba(0, 168, 107, 0.08) !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: rgba(0, 168, 107, 0.05) !important;
+}
+
+/* Checkboxes and Radio Buttons */
+.MuiCheckbox-root {
+  padding: 9px !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.MuiCheckbox-root.Mui-checked {
+  color: var(--jade-green) !important;
+}
+
+.MuiRadio-root {
+  padding: 9px !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.MuiRadio-root.Mui-checked {
+  color: var(--jade-green) !important;
+}
+
+.MuiFormControlLabel-root {
+  margin-left: -9px !important;
+  margin-right: var(--spacing-md) !important;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.form-actions-start {
+  justify-content: flex-start;
+}
+
+.form-actions-center {
+  justify-content: center;
+}
+
+.form-actions-between {
+  justify-content: space-between;
+}
+
+/* Form Validation */
+.form-error-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-error-message svg {
+  font-size: 16px;
+}
+
+.form-success-message {
+  color: var(--success);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-success-message svg {
+  font-size: 16px;
+}
+
+/* Form Helper Text */
+.form-helper-text {
+  color: var(--dark-gray);
+  font-size: 0.75rem;
+  margin-top: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+/* Required Field Indicator */
+.required-field::after {
+  content: ' *';
+  color: var(--error);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Form Grid Layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Form Divider */
+.form-divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.06);
+  margin: var(--spacing-lg) 0;
+  position: relative;
+}
+
+.form-divider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  padding: 0 var(--spacing-md);
+  color: var(--dark-gray);
+  font-size: 0.875rem;
+}
+
+/* File Upload */
+.file-upload-container {
+  border: 2px dashed rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.01);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.file-upload-container:hover {
+  border-color: var(--jade-green);
+  background-color: rgba(0, 168, 107, 0.02);
+}
+
+.file-upload-icon {
+  font-size: 2rem;
+  color: var(--medium-gray);
+  margin-bottom: var(--spacing-sm);
+}
+
+.file-upload-text {
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-xs);
+}
+
+.file-upload-hint {
+  font-size: 0.75rem;
+  color: var(--medium-gray);
+}
+
+/* Form Chips */
+.form-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.form-chip {
+  background-color: rgba(0, 168, 107, 0.08);
+  color: var(--jade-green);
+  border-radius: var(--border-radius-pill);
+  padding: 4px 12px;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-chip-close {
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.form-chip-close:hover {
+  opacity: 1;
+}
+
+/* Form Tooltips */
+.form-tooltip {
+  margin-left: var(--spacing-xs);
+  color: var(--medium-gray);
+  cursor: help;
+  transition: color var(--transition-fast);
+}
+
+.form-tooltip:hover {
+  color: var(--dark-gray);
+}
+
+/* Form Toggle */
+.form-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.form-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.form-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--medium-gray);
+  transition: var(--transition-normal);
+  border-radius: 34px;
+}
+
+.form-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: var(--transition-normal);
+  border-radius: 50%;
+}
+
+.form-toggle input:checked + .form-toggle-slider {
+  background-color: var(--jade-green);
+}
+
+.form-toggle input:checked + .form-toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* Responsive Form Adjustments */
+@media (max-width: 768px) {
+  .form-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .form-col {
+    width: 100%;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: var(--spacing-md);
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+  }
+  
+  .MuiInputBase-input {
+    padding: 12px 14px !important;
+  }
+}

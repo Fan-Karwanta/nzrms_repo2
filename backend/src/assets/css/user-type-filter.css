@@ -1,47 +1,61 @@
 div.user-type-filter {
-  background: #fafafa;
-  margin: 10px 10px 0 0;
-  padding: 5px;
-  border: 1px solid #dadada;
-  font-size: 13px;
+  background: var(--white);
+  margin: 0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: var(--card-shadow);
 }
 
 div.user-type-filter ul.user-type-list {
   list-style-type: none;
-  font-size: 13px;
+  font-size: 14px;
   margin: 15px 0 0;
   padding: 0;
   display: inline-block;
+  width: 100%;
 }
 
 div.user-type-filter ul.user-type-list li {
   width: 42%;
   float: left;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   margin-left: 4%;
   margin-right: 4%;
   clear: none;
+  display: flex;
+  align-items: center;
+}
+
+div.user-type-filter ul.user-type-list li input[type='checkbox'] {
+  cursor: pointer;
+  accent-color: var(--jade-green);
+  width: 16px;
+  height: 16px;
 }
 
 div.user-type-filter ul.user-type-list li span.bs {
-  padding: 3px;
-  width: 80px;
+  padding: 6px 10px;
+  min-width: 80px;
   text-align: center;
-  color: #fff;
-  box-shadow: none;
+  color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
   position: relative;
-  top: -3px;
-  left: 5px;
+  margin-left: 8px;
   cursor: pointer;
   overflow: hidden;
   margin-bottom: 0;
   display: inline-block;
   opacity: 1;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 div.user-type-filter ul.user-type-list li span.bs:hover {
-  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
 }
 
 div.user-type-filter ul.user-type-list li span.bs-admin {
@@ -49,20 +63,30 @@ div.user-type-filter ul.user-type-list li span.bs-admin {
 }
 
 div.user-type-filter ul.user-type-list li span.bs-agency {
-  background: #e98003;
+  background: var(--jade-green);
 }
 
 div.user-type-filter ul.user-type-list li span.bs-user {
-  background: #22bba7;
+  background: var(--emerald-green);
 }
 
 div.user-type-filter div.filter-actions {
   text-align: center;
-  padding-bottom: 5px;
+  padding: 10px 0;
+  border-top: 1px solid var(--light-gray);
+  margin-top: 5px;
 }
 
 div.user-type-filter div.filter-actions span.uncheckall {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
-  color: #0064c8;
+  color: var(--jade-green);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+div.user-type-filter div.filter-actions span.uncheckall:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
 }

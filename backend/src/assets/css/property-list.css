@@ -4,28 +4,38 @@ section.property-list {
   align-items: center;
   flex: 1 0 auto;
   padding-top: 10px;
+  width: 100%;
 }
 
 section.property-list .empty-list {
   margin-top: 15px;
   text-align: center;
   width: 250px;
+  color: var(--dark-gray);
+  font-size: 1rem;
 }
 
 section.property-list article {
   position: relative;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  color: #333;
-  font-size: 12px;
-  margin-bottom: 10px;
+  background: var(--white);
+  border-radius: 12px;
+  color: var(--body-text-color);
+  font-size: 14px;
+  margin-bottom: 20px;
   min-height: 430px;
-  width: 800px;
-  padding: 5px;
+  width: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--jade-green);
+}
+
+section.property-list article:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 section.property-list article div.left-panel {
@@ -40,66 +50,113 @@ section.property-list article div.left-panel .property-img {
   margin-bottom: 0;
   max-width: 100%;
   max-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 section.property-list article div.left-panel div.property-agency a.property-agency-info {
-  color: #0064c8;
-  text-decoration: underline;
+  color: var(--jade-green);
+  text-decoration: none;
   font-size: 0.9em;
   line-height: 1em;
   white-space: nowrap;
   margin-left: 5px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+section.property-list article div.left-panel div.property-agency a.property-agency-info:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
 }
 
 section.property-list article div.middle-panel {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  flex: 1;
+  padding: 0 20px;
 }
 
 section.property-list article div.middle-panel div.name {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 7px 11px;
+  padding: 0 0 15px 0;
   pointer-events: none;
+  border-bottom: 1px solid var(--medium-gray);
+  margin-bottom: 15px;
 }
 
 section.property-list article div.middle-panel div.name h2 {
-  font-size: 2em;
-  font-weight: 700;
+  font-size: 1.75em;
+  font-weight: 600;
   text-size-adjust: none;
   line-height: 1.3em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--heading-color);
+  margin: 0;
 }
 
 section.property-list article div.middle-panel .property-info div.property-info-description {
   max-width: 400px;
+  line-height: 1.5;
+  color: var(--body-text-color);
+}
+
+section.property-list article div.right-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 0 0 150px;
 }
 
 section.property-list article div.right-panel div.price {
-  color: #383838;
-  font-size: 2em;
+  color: var(--jade-green);
+  font-size: 1.75em;
   font-weight: 700;
   white-space: nowrap;
+  background-color: rgba(0, 168, 107, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
 }
 
 section.property-list article div.right-panel div.action {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 20px;
+  bottom: 20px;
+}
+
+section.property-list article div.right-panel div.action .MuiButton-root {
+  background-color: var(--jade-green) !important;
+  color: var(--white) !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+}
+
+section.property-list article div.right-panel div.action .MuiButton-root:hover {
+  background-color: var(--dark-green) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Device width is between 500px and 960px */
 
 @media only screen and (width >=500px) and (width <=960px) {
   section.property-list {
-    max-width: 480px;
+    max-width: 100%;
+    padding: 0 15px;
   }
 }
 
@@ -112,29 +169,43 @@ section.property-list article div.right-panel div.action {
 
   section.property-list article {
     position: relative;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    color: #333;
-    font-size: 12px;
-    margin: 0 1px 10px;
-    min-height: 730px;
+    background: var(--white);
+    border-radius: 12px;
+    color: var(--body-text-color);
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    min-height: auto;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    border-left: 4px solid var(--jade-green);
   }
 
   section.property-list article div.left-panel {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 15px;
+    padding: 15px 0;
+    flex: auto;
+  }
+
+  section.property-list article div.middle-panel {
+    padding: 15px 0;
   }
 
   section.property-list article div.right-panel {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid var(--medium-gray);
+    flex: auto;
+  }
+
+  section.property-list article div.right-panel div.action {
+    position: static;
   }
 }

@@ -7,10 +7,10 @@
 
 @media only screen and (width >=960px) {
   div.main {
-    max-width: 872px;
+    max-width: 900px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 15px;
+    margin-top: 20px;
     padding-bottom: 30px;
   }
 
@@ -21,12 +21,16 @@
 }
 
 div.main {
-  background-color: #fff;
-  border: 1px solid #ededed;
-  border-radius: 4px;
-  padding: 15px;
-  margin-bottom: 15px;
-  /* transform: translate3d(0, 0, 0); */
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+div.main:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 div.main div.property div.images-container {
@@ -34,56 +38,74 @@ div.main div.property div.images-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-right: 15px;
+  margin-right: 25px;
 }
 
 div.main div.property div.main-image {
   width: 100%;
   height: 350px;
-  padding: 5px;
+  padding: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
 }
 
 div.main div.property img.main-image {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+div.main div.property div.main-image:hover img.main-image {
+  transform: scale(1.05);
 }
 
 div.main div.property div.images {
   display: flex;
   flex-flow: row wrap;
   overflow-x: auto;
+  margin-top: 10px;
 }
 
 div.main div.property div.images div.image {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #D5DBDB;
-  padding: 5px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid var(--light-gray);
+  padding: 2px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin: 5px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 div.main div.property div.images div.image:hover {
-  border: 2px solid #004b91;
+  border: 2px solid var(--jade-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 div.main div.property div.images div.selected,
 div.main div.property div.images div.selected:hover {
-  border: 2px solid #FF8F00;
+  border: 2px solid var(--jade-green);
+  box-shadow: 0 0 0 2px rgba(0, 168, 107, 0.3);
 }
 
 div.main div.property div.images img.image {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
 }
 
 div.main div.property div.right-panel {
@@ -96,42 +118,76 @@ div.main div.property div.right-panel div.right-panel-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 div.main div.property div.right-panel div.name h2 {
   font-size: 1.8em;
-  font-weight: 700;
+  font-weight: 600;
   text-size-adjust: none;
   line-height: 1.3em;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--heading-color);
 }
 
 div.main div.property div.right-panel div.price {
-  color: #383838;
-  font-size: 1.5em;
+  color: var(--jade-green);
+  font-size: 1.6em;
   font-weight: 700;
   white-space: nowrap;
+  background-color: rgba(0, 168, 107, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-left: 15px;
+}
+
+div.main div.property div.right-panel div.description {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: var(--body-text-color);
 }
 
 div.main div.footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--light-gray);
 }
 
 div.main div.footer div.action {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
+div.main div.footer div.action .MuiButton-root {
+  background-color: var(--jade-green) !important;
+  color: var(--white) !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 8px 20px !important;
+}
+
+div.main div.footer div.action .MuiButton-root:hover {
+  background-color: var(--dark-green) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
 
 div.main div.footer div.agency {
   display: flex;
@@ -139,26 +195,42 @@ div.main div.footer div.agency {
 }
 
 div.main div.agency span.agency-logo {
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 32px;
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+div.main div.agency span.agency-logo:hover {
+  border-color: var(--jade-green);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 div.main div.agency span.agency-logo img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 div.main div.agency a.agency-info {
-  color: #0064c8;
-  text-decoration: underline;
-  font-size: 0.9em;
-  line-height: 1em;
+  color: var(--jade-green);
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1.2em;
   white-space: nowrap;
-  margin-left: 5px;
+  margin-left: 10px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+div.main div.agency a.agency-info:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
 }

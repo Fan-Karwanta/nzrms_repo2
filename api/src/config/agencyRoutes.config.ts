@@ -5,6 +5,7 @@ const routes = {
   getAgency: '/api/agency/:id',
   getAgencies: '/api/agencies/:page/:size',
   getAllAgencies: '/api/all-agencies',
+  getAgencyStats: '/api/agency-stats',
 }
 
 export default routes

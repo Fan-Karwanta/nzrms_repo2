@@ -15,5 +15,7 @@ routes.route(routeNames.getBooking).get(authJwt.verifyToken, bookingController.g
 routes.route(routeNames.getBookings).post(authJwt.verifyToken, bookingController.getBookings)
 routes.route(routeNames.hasBookings).get(authJwt.verifyToken, bookingController.hasBookings)
 routes.route(routeNames.cancelBooking).post(authJwt.verifyToken, bookingController.cancelBooking)
+routes.route(routeNames.getBookingStats).get(authJwt.verifyToken, bookingController.getBookingStats)
+routes.route(routeNames.getRecentBookings).get(authJwt.verifyToken, bookingController.getRecentBookings)
 
 export default routes

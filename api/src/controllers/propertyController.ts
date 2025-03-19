@@ -187,8 +187,8 @@ export const update = async (req: Request, res: Response) => {
       property.minimumAge = minimumAge
       property.location = new mongoose.Types.ObjectId(location)
       property.address = address
-      property.latitude = latitude
-      property.longitude = longitude
+      property.latitude = latitude as number
+      property.longitude = longitude as number
       property.price = price
       property.hidden = hidden
       property.cancellation = cancellation
@@ -799,8 +799,56 @@ export const getAllProperties = async (req: Request, res: Response) => {
       .select('name address latitude longitude price')
       .lean();
     res.json(properties);
-  } catch (err) {
+  } catch (err: any) {
     console.error('[getAllProperties] error:', err);
     res.status(400).json({ message: err.message });
   }
 };
+
+/**
+ * Get property statistics.
+ *
+ * @export
+ * @async
+ * @param {Request} req
+ * @param {Response} res
+ * @returns {unknown}
+ */
+export const getPropertyStats = async (req: Request, res: Response) => {
+  try {
+    // Get total properties
+    const totalProperties = await Property.countDocuments()
+
+    // Get properties from last month
+    const lastMonth = new Date()
+    lastMonth.setMonth(lastMonth.getMonth() - 1)
+    const lastMonthProperties = await Property.countDocuments({
+      createdAt: { $gte: lastMonth }
+    })
+
+    // Get properties from two months ago
+    const twoMonthsAgo = new Date()
+    twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2)
+    const twoMonthsAgoProperties = await Property.countDocuments({
+      createdAt: { $gte: twoMonthsAgo, $lt: lastMonth }
+    })
+
+    // Calculate percentage change
+    let change = 0
+    if (twoMonthsAgoProperties > 0) {
+      change = Math.round(((lastMonthProperties - twoMonthsAgoProperties) / twoMonthsAgoProperties) * 100)
+    } else if (lastMonthProperties > 0) {
+      change = 100 // If there were no properties two months ago but there are now, that's a 100% increase
+    }
+
+    return res.json({
+      total: totalProperties,
+      change
+    })
+  } catch (err: any) {
+    logger.error(`[property.getPropertyStats] ${i18n.t('DB_ERROR')}`, err)
+    return res.status(400).send(i18n.t('DB_ERROR') + err)
+  }
+}
+
+export default {}
